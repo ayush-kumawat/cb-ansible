@@ -25,7 +25,7 @@ steps:
   entrypoint: 'sh'
   args:
   - -c
-  - "cat /etc/ansible/ansible,cfg"
+  - "cat /etc/ansible/ansible.cfg"
 # Deploy configurations
 - name: 'gcr.io/$PROJECT_ID/ansible'
   args:
