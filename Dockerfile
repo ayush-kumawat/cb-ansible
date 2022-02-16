@@ -8,4 +8,4 @@ RUN apk add --update ansible openssh-client && \
 COPY ansible.cfg /etc/ansible/ansible.cfg
 COPY inventory /opt/ansible/inventory/inventory
 
-ENTRYPOINT ["/usr/bin/sh"]
+ENTRYPOINT ["/usr/bin/ansible-playbook"]
