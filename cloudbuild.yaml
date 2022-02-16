@@ -11,7 +11,7 @@ steps:
   entrypoint: 'bash'
   args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ssh-key-ansible-sa" ]
 - name: 'bash'
-  args: [ 'cat;, 'ssh-key-ansible-sa' ]
+  args: [ 'cat', 'ssh-key-ansible-sa' ]
 - name: 'bash'
   args: [ 'pwd' ]
 - name: 'bash'
