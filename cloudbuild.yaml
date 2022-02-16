@@ -27,5 +27,10 @@ steps:
   - -c
   - "cat /etc/ansible/ansible.cfg"
 - name: 'gcr.io/$PROJECT_ID/ansible'
+  entrypoint: 'sh'
   args:
-  - playbook.yaml
+  - -c
+  - "ssh -i /workspace/ssh-key-ansible-sa sa_102497234636656480746@10.0.15.31"
+#- name: 'gcr.io/$PROJECT_ID/ansible'
+#  args:
+#  - playbook.yaml
