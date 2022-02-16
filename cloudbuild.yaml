@@ -24,6 +24,4 @@ steps:
 # Deploy configurations
 - name: 'gcr.io/$PROJECT_ID/ansible'
   args:
-  - all
-  - m
-  - ping
+  - playbook.yaml
