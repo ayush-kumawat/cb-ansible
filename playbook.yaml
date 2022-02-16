@@ -1,0 +1,8 @@
+- hosts:
+    - ansible
+  tasks:
+    - action: ping
+    - name: Install apache httpd  (state=present is optional)
+      apt:
+        name: apache2
+        state: present
