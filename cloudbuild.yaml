@@ -9,10 +9,10 @@ steps:
 
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: 'bash'
-  args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > /ssh-key-ansible-sa" ]
+  args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ssh-key-ansible-sa" ]
 - name: 'bash'
-  args: [ 'cat', '/ssh-key-ansible-sa' ]
+  args: [ 'cat', 'ssh-key-ansible-sa' ]
 - name: 'bash'
   args: [ 'pwd' ]
 - name: 'bash'
-  args: [ 'ls', '/' ]
+  args: [ 'cat', '/workspace/ssh-key-ansible-sa' ]
