@@ -26,12 +26,6 @@ steps:
   args:
   - -c
   - "cat /etc/ansible/ansible.cfg"
-# Deploy configurations
-- name: 'gcr.io/$PROJECT_ID/ansible'
-  args:
-  - -c
-  - cat
-  - /etc/ansible/ansible.cfg
 - name: 'gcr.io/$PROJECT_ID/ansible'
   args:
   - playbook.yaml
