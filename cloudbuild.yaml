@@ -23,6 +23,6 @@ steps:
 # Deploy configurations
 - name: 'gcr.io/$PROJECT_ID/ansible'
   args:
-  - c
+  - -c
   - cat
   - /etc/ansible/ansible.cfg
