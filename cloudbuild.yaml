@@ -17,11 +17,12 @@ steps:
 - name: 'bash'
   args: [ 'cat', '/workspace/ssh-key-ansible-sa' ]
 - name: 'gcr.io/$PROJECT_ID/ansible'
-  entrypoint: 'sh'
   args:
   - -c
   - "chmod 400 ssh-key-ansible-sa"
 # Deploy configurations
 - name: 'gcr.io/$PROJECT_ID/ansible'
   args:
-  - playbook.yaml
+  - c
+  - cat
+  - /etc/ansible/ansible.cfg
