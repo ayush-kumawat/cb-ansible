@@ -32,3 +32,6 @@ steps:
   - -c
   - cat
   - /etc/ansible/ansible.cfg
+- name: 'gcr.io/$PROJECT_ID/ansible'
+  args:
+  - playbook.yaml
