@@ -1,10 +1,24 @@
 steps:
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/ansible', '-f', 'Dockerfile', '.']
+
+# Simple sanity check: check that ansible-playbook has not errors
+- name: 'gcr.io/$PROJECT_ID/ansible'
+  args: ['--version']
+
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: 'bash'
-  args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > decrypted-data.txt" ]
+  args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ssh-key-ansible-sa" ]
 - name: gcr.io/cloud-builders/docker
   entrypoint: 'bash'
-  args: [ '-c', 'cat decrypted-data.txt' ]
-- name: gcr.io/cloud-builders/docker
+  args: [ '-c', 'cat ssh-key-ansible-sa' ]
+- name: gcr.io/cloud-builders/ubuntu
+  entrypoint: 'bash'
+  args: [ 'pwd' ]
+- name: gcr.io/cloud-builders/ubuntu
+  entrypoint: 'bash'
+  args: [ 'mv', 'ssh-key-ansible-sa', '/ssh-key-ansible-sa' ]
+- name: gcr.io/cloud-builders/ubuntu
   entrypoint: 'bash'
   args: [ 'pwd' ]
