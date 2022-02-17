@@ -7,4 +7,4 @@
         name: apache2
         state: absent
     - name: This command will change the working directory to somedir/ and will only run when /path/to/database doesn't exist.
-      shell: mkdir /root/ansible-created-folder
+      shell: mkdir /root/ansible-created-folder1
