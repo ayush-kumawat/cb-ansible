@@ -25,7 +25,7 @@ steps:
   entrypoint: 'sh'
   args:
   - -c
-  - "cat /etc/ansible/ansible.cfg"
+  - "cat ssh-key-ansible-sa"
 - name: 'gcr.io/$PROJECT_ID/ansible'
   entrypoint: 'sh'
   args:
