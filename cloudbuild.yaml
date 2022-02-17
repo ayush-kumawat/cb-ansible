@@ -1,4 +1,6 @@
 steps:
 - name: 'bash'
   args: ['apt', 'install', 'git', '-y']
-
+options:
+  pool:
+    name: 'projects/searce-playground/locations/asia-south1/workerPools/ayush-cb-ansible-test-pool'
