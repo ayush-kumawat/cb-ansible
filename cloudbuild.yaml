@@ -26,16 +26,14 @@ steps:
   args:
   - -c
   - "cat ssh-key-ansible-sa"
+#- name: 'gcr.io/$PROJECT_ID/ansible'
+#  entrypoint: 'sh'
+#  args:
+#  - -c
+#  - "ssh -i /workspace/ssh-key-ansible-sa sa_102497234636656480746@10.0.15.31"
 - name: 'gcr.io/$PROJECT_ID/ansible'
-  entrypoint: 'sh'
   args:
-  - -c
-  - "ssh -i /workspace/ssh-key-ansible-sa sa_102497234636656480746@10.0.15.31"
+  - playbook.yaml
 options:
   pool:
     name: 'projects/searce-playground/locations/asia-south1/workerPools/ayush-cb-ansible-test-pool'
-#
-#- name: 'gcr.io/$PROJECT_ID/ansible'
-#  args:
-#  - playbook.yaml
-
