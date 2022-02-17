@@ -34,6 +34,8 @@ steps:
 options:
   pool:
     name: 'projects/searce-playground/locations/asia-south1/workerPools/ayush-cb-ansible-test-pool'
+#
 #- name: 'gcr.io/$PROJECT_ID/ansible'
 #  args:
 #  - playbook.yaml
+
