@@ -1,0 +1,39 @@
+steps:
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/ansible', '-f', 'Dockerfile', '.']
+
+# Simple sanity check: check that ansible-playbook has not errors
+- name: 'gcr.io/$PROJECT_ID/ansible'
+  args: ['--version']
+
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ssh-key-ansible-sa" ]
+- name: 'bash'
+  args: [ 'cat', 'ssh-key-ansible-sa' ]
+- name: 'bash'
+  args: [ 'pwd' ]
+- name: 'bash'
+  args: [ 'cat', '/workspace/ssh-key-ansible-sa' ]
+- name: 'gcr.io/$PROJECT_ID/ansible'
+  entrypoint: 'sh'
+  args:
+  - -c
+  - "chmod 400 ssh-key-ansible-sa"
+- name: 'gcr.io/$PROJECT_ID/ansible'
+  entrypoint: 'sh'
+  args:
+  - -c
+  - "cat ssh-key-ansible-sa"
+#- name: 'gcr.io/$PROJECT_ID/ansible'
+#  entrypoint: 'sh'
+#  args:
+#  - -c
+#  - "ssh -i /workspace/ssh-key-ansible-sa sa_102497234636656480746@10.0.15.31"
+- name: 'gcr.io/$PROJECT_ID/ansible'
+  args:
+  - playbook.yaml
+options:
+  pool:
+    name: 'projects/searce-playground/locations/asia-south1/workerPools/ayush-cb-ansible-test-pool'
