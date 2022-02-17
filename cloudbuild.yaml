@@ -33,7 +33,7 @@ steps:
   - "ssh -i /workspace/ssh-key-ansible-sa sa_102497234636656480746@10.0.15.31"
 options:
   pool:
-    name: 'projects/$WORKERPOOL_PROJECT_ID/locations/$REGION/workerPools/ayush-cb-ansible-test-pool'
+    name: 'projects/searce-playground/locations/asia-south1/workerPools/ayush-cb-ansible-test-pool'
 #- name: 'gcr.io/$PROJECT_ID/ansible'
 #  args:
 #  - playbook.yaml
