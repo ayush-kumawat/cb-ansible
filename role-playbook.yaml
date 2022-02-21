@@ -1,0 +1,3 @@
+- hosts: ansible
+  roles:
+   - role: googlecloudplatform.google_cloud_ops_agents
