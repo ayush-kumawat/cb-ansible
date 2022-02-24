@@ -1,4 +1,5 @@
-- name: gcr.io/cloud-builders/gcloud
+steps:
+- name: gcr.io/cloud-builders/gcloudi
   entrypoint: 'bash'
   args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ssh-key-ansible-sa" ]
 options:
