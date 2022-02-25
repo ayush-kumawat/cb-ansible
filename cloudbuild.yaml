@@ -1,7 +1,7 @@
 steps:
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: 'bash'
-  args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ssh-key-ansible-sa" ]
+  args: [ '-c', "gcloud secrets versions access latest --secret=ayush-ansible-key-secret --project searce-playground --format='get(payload.data)' | tr '_-' '/+' | base64 -d > ssh-key-ansible-sa" ]
 options:
   pool:
     name: 'projects/searce-playground/locations/asia-south1/workerPools/ayush-cb-ansible-test-pool'
