@@ -5,3 +5,4 @@ steps:
 options:
   pool:
     name: 'projects/searce-playground/locations/asia-south1/workerPools/ayush-cb-ansible-test-pool'
+  logging: CLOUD_LOGGING_ONLY
